@@ -9,6 +9,9 @@
 	<!-- Dynamic description tag -->
 	<?php echo Theme::metaTags('description'); ?>
 
+	<!-- Favicon -->
+	<?php echo Theme::favicon('img/favicon.png'); ?>
+
 	<!-- Include CSS Styles from this theme -->
 	<?php echo Theme::css('css/style.css'); ?>
 
@@ -19,19 +22,44 @@
 	<!-- Load plugins with the hook siteBodyBegin -->
 	<?php Theme::plugins('siteBodyBegin') ?>
 
-	<img src="<?php echo $site->logo() ?>" alt="" width="128">
-	<h1><?php echo $site->title() ?></h1>
-	<h2><?php echo $site->slogan() ?></h2>
+	<!-- Site title and fixed navigation header -->
+	<div class="showtime-header">
+		<div class="showtime-header-logo"> 
+			<a href="<?php echo $site->url() ?>"><img src="<?php echo $site->logo() ?>" alt="<?php echo $site->description() ?>"></a>
+			<div class="showtime-header-logo-text">
+				<p><?php echo $site->title() ?></p>
+				<small><?php echo $site->slogan() ?></small>
+			</div>
+		</div>
+		<!-- Links on the navigation header -->
+		<div class="showtime-header-links">
+			<a href="<?php echo $site->url() ?>">Home</a>
+			<a href="<?php echo $site->url() ?>/about">About</a>
+			<a href="<?php echo $site->url() ?>/contact">Contact</a>
+		</div>
+	</div>
 
-	<?php if ($WHERE_AM_I=='page'): ?>
-		<h3><?php echo $page->title(); ?></h3>
+	<!-- Main content -->
+	<div class="showtime-content">
+		<!-- Home page content -->
+		<?php if ($WHERE_AM_I == 'home'): ?>
+			<?php echo home(); ?>
+		<?php else: ?>
+			<!-- Breadcrumb navigation -->
+			<div class="showtime-breadcrumb">
+				<?php echo breadcrumb(); ?>
+			</div>	
+			<!-- Page content -->
+			<small><?php echo $page->slug(); ?></small>
+			<h3><?php echo $page->title(); ?></h3>
+			<?php echo $page->content(); ?>
+		<?php endif ?>
+	</div>
 
-	<?php elseif ($WHERE_AM_I=='home'): ?>
-		<?php foreach ($content as $page): ?>
-		<h3><?php echo $page->title(); ?></h3>
-		<?php endforeach ?>
-
-	<?php endif ?>
+	<!-- Footer -->
+	<div class="showtime-footer">
+		<small><?php echo $site->footer() ?></small>
+	</div>
 
 	<!-- Load plugins with the hook siteBodyBegin -->
 	<?php Theme::plugins('siteBodyEnd') ?>
