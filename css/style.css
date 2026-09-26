@@ -1,98 +1,80 @@
+:root {
+	--color-primary: #0d6efdcc;
+	--color-secondary: #6c757dcc;
+	--color-success: #198754cc;
+	--color-danger: #dc3545cc;
+	--color-warning: #ffc107cc;
+	--color-info: #0dcaf0cc;
+	--color-light: #f8f9facc;
+	--color-dark: #212529cc;
+	--color-purple: #6f42c1cc;
+	--color-indigo: #6610f2cc;
+	--color-blue: #0d6efdcc;
+
+	--color-bright-purple: #bf40bfcc;
+	--color-lavender: #E6E6FAcc;
+
+	--font-family-sans: 'Noto Sans JP', sans-serif;
+}
+
+html {
+    overflow-y: scroll;
+}
+
 body {
-	font-family: sans-serif, Tahoma;
-	margin-top: 5em; /* Adjust this value based on the height of your header */
-	padding-top: 0em;
+	font-family: var(--font-family-sans);
+	margin-top: 0;
+	padding-top: 5em;
 }
 
 .showtime-content {
-	margin-top: 0em;
-	margin-right: auto;
-	margin-bottom: 1em;
-	margin-left: auto;
-	width: 70%;
+/*    width: 100%;       /* 基本は横幅いっぱいに広がる */
+    max-width: 1200px; /* ただし1200px以上にはならない */
+    margin: 0 auto;    /* 中央寄せ */
+    padding: 0 1em;   /* 画面が小さくなっても、左右に必ず1emの余白が残る */
 }
 
-.showtime-header {
-	font-family: Tahoma, sans-serif;
-	background-color: #EEEEFFEE;
-	border-bottom: 1px solid #CCCCDDCC;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 5em;
-	display: flex;
-	align-items: center;
-	padding: 0 10%;
-	box-sizing: border-box;
-	z-index: 1000;
+/* ------------- Header styles -------- */
+.showtime-header-logo{
+	background-color: var(--color-lavender);
+	margin: 0 auto;    /* 中央寄せ */
 }
-
-.showtime-header-logo {
-	display: flex;
-	align-items: center;
-}
-
 .showtime-header-logo img {
-	width: 4em;
-	height: 4em;
-	margin-right: 1em;
-	flex-shrink: 0;
+	width: 2.8em;
+	height: 2.8em;
+	max-width: 2.8em;
+	margin: 0 0.2em 0 0;
 }
-
-.showtime-header-logo-text {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-}
-
-.showtime-header-logo-text p {
-	font-weight: bold;
-	margin:0.3em 0 0 0;
-	font-size: 1.2em; /* Adjust the font size as needed */
-}
-.showtime-header-logo-text small {
-	font-weight: normal;
+.showtime-header-logo h5 {
+	font-weight: 700;
 	margin:0;
-	font-size: 0.7em; /* Adjust the font size as needed */
+}
+.showtime-header-logo small {
+    font-size: 0.6em;
+	margin: 0;
+	flex-shrink: 0;
+	width: 20em; /* 幅を固定することでハンバーガーの改行を防ぐワークアラウンド */
+	/* white-space: nowrap; */
 }
 
-.showtime-header-links {
-	display: flex;
-	align-items: center;
-	margin-left: auto;
-	margin-right: 1em;
-	gap: 1.5em;
-}
-
-.showtime-header-links a {
-	text-decoration: none;
-	color: inherit;
-}
-
-.showtime-header-links a:hover {
-	text-decoration: underline #7777ff;
-	text-decoration-thickness: 3px;
-	text-underline-offset: 0.5em;
-	cursor: pointer;
-	color: #7777ff;
-	transition: text-decoration 0.3s, color 0.3s ease-in-out;
-	-webkit-transition: text-decoration 0.3s, color 0.3s ease-in-out;
-	-moz-transition: text-decoration 0.3s, color 0.3s ease-in-out;
-	-o-transition: text-decoration 0.3s, color 0.3s ease-in-out;
-
-}
-
+/* ---------- breadcrumb styles ---------- */
 .showtime-breadcrumb {
-	margin: 2em auto;
-	width: 70%;
+	border-radius: 100vh;
+	margin: 0.1em auto;
+	padding: 0.4em 2em;
+}
+.showtime-breadcrumb li {
+	font-size: 0.85em;
+}
+.showtime-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    content: "";
 }
 
+/* --------------- Footer styles --------------- */
 .showtime-footer {
 	/* background-color: #EEEEFFEE; */
-	border-top: 1px solid #CCCCDDCC;
+	border-top: 1px solid var(--color-lavender);
 	text-align: center;
-	margin: 2em 0 0 0;
+	margin: 2em 0 1em 0;
 	width: 100%;
 }
