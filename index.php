@@ -13,55 +13,52 @@
 	<?php echo Theme::favicon('img/favicon.png'); ?>
 
 	<!-- Include CSS Styles from this theme -->
+	<?php echo Theme::cssBootstrap(); ?>
 	<?php echo Theme::css('css/style.css'); ?>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- Include JS Scripts from this theme -->
+	<?php echo Theme::jquery(); ?>
+	<?php echo Theme::jsBootstrap(); ?>
 
 	<!-- Load plugins with the hook siteHead -->
-	<?php Theme::plugins('siteHead') ?>
+	<?php Theme::plugins('siteHead'); ?>
 </head>
 <body>
 	<!-- Load plugins with the hook siteBodyBegin -->
-	<?php Theme::plugins('siteBodyBegin') ?>
+	<?php Theme::plugins('siteBodyBegin'); ?>
 
-	<!-- Site title and fixed navigation header -->
-	<div class="showtime-header">
-		<div class="showtime-header-logo"> 
-			<a href="<?php echo $site->url() ?>"><img src="<?php echo $site->logo() ?>" alt="<?php echo $site->description() ?>"></a>
-			<div class="showtime-header-logo-text">
-				<p><?php echo $site->title() ?></p>
-				<small><?php echo $site->slogan() ?></small>
-			</div>
-		</div>
-		<!-- Links on the navigation header -->
-		<div class="showtime-header-links">
-			<a href="<?php echo $site->url() ?>">Home</a>
-			<a href="<?php echo $site->url() ?>/about">About</a>
-			<a href="<?php echo $site->url() ?>/contact">Contact</a>
-		</div>
-	</div>
+	<!-- Site title and navigation header -->
+    <header class="showtime-header">
+		<?php echo siteHeader(); ?>
+    </header>
 
 	<!-- Main content -->
-	<div class="showtime-content">
+	<main class="showtime-content">
+		<!-- Breadcrumb navigation -->
+		<div class="showtime-breadcrumb"><?php echo breadcrumb(); ?></div>
+
 		<!-- Home page content -->
 		<?php if ($WHERE_AM_I == 'home'): ?>
 			<?php echo home(); ?>
+		<?php elseif ($WHERE_AM_I == 'category'): ?>
+			<!-- categoryPage content -->
+			<?php echo categoryPage(); ?>
 		<?php else: ?>
-			<!-- Breadcrumb navigation -->
-			<div class="showtime-breadcrumb">
-				<?php echo breadcrumb(); ?>
-			</div>	
-			<!-- Page content -->
+			<!-- Page content and other pages -->
 			<small><?php echo $page->slug(); ?></small>
 			<h3><?php echo $page->title(); ?></h3>
+			<hr>
 			<?php echo $page->content(); ?>
 		<?php endif ?>
-	</div>
+	</main>
 
 	<!-- Footer -->
-	<div class="showtime-footer">
-		<small><?php echo $site->footer() ?></small>
-	</div>
+	<footer class="showtime-footer">
+		<small><?php echo $site->footer(); ?></small>
+	</footer>
 
 	<!-- Load plugins with the hook siteBodyBegin -->
-	<?php Theme::plugins('siteBodyEnd') ?>
+	<?php Theme::plugins('siteBodyEnd'); ?>
 </body>
 </html>
