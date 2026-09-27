@@ -22,6 +22,7 @@ html {
 }
 
 body {
+	font-size: 16px !important;
 	font-family: var(--font-family-sans);
 	margin-top: 0;
 	padding-top: 5em;
@@ -32,6 +33,38 @@ body {
     max-width: 1200px; /* ただし1200px以上にはならない */
     margin: 0 auto;    /* 中央寄せ */
     padding: 0 1em;   /* 画面が小さくなっても、左右に必ず1emの余白が残る */
+}
+
+.showtime-page {
+	padding: 0.2em 0.5em;
+	background: var(--color-light);
+}
+/* --------- Override for page-content --------- */
+.showtime-page h1 { /* タイトル */
+    font-size: 1.5rem;
+    font-weight: 900;
+	padding: 0.2em 0.5em;
+	border-bottom: 3px dashed var(--color-secondary);
+}
+.showtime-page h2 { /* 章 */
+	font-size: 1.3rem; 
+    font-weight: 700;
+}
+.showtime-page h3 { /* 節 */
+	font-size: 1.2rem; 
+    font-weight: 700;
+}
+.showtime-page h4 { /* 項 */
+	font-size: 1.1rem;
+    font-weight: 600;
+}
+.showtime-page h5 { /* 小見出し */
+	font-size: 1rem;
+    font-weight: 600;
+}
+.showtime-page h6 { /* 補足見出し */
+	font-size: 0.95rem;
+    font-weight: 600;
 }
 
 /* ------------- Header styles -------- */
@@ -45,7 +78,7 @@ body {
 	max-width: 2.8em;
 	margin: 0 0.2em 0 0;
 }
-.showtime-header-logo h5 {
+.showtime-header-logo h4 {
 	font-weight: 700;
 	margin:0;
 }
