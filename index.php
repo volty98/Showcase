@@ -14,8 +14,9 @@
 
 	<!-- Include CSS Styles from this theme -->
 	<?php echo Theme::cssBootstrap(); ?>
-	<?php echo Theme::css('css/style.css'); ?>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+	<?php echo Theme::css('css/style.css'); ?>
 
 	<!-- Include JS Scripts from this theme -->
 	<?php echo Theme::jquery(); ?>
