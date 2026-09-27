@@ -46,10 +46,7 @@
 			<?php echo categoryPage(); ?>
 		<?php else: ?>
 			<!-- Page content and other pages -->
-			<small><?php echo $page->slug(); ?></small>
-			<h3><?php echo $page->title(); ?></h3>
-			<hr>
-			<?php echo $page->content(); ?>
+			<?php echo contentPage(); ?>
 		<?php endif ?>
 	</main>
 

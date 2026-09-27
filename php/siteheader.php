@@ -35,7 +35,7 @@ function siteHeader() {
             <a class="navbar-brand d-flex align-items-center" href="'.$site->url().'">
                 <img class="d-inline-block align-top" src="'.$site->logo().'" alt="'.$site->description().'">
                 <div class="ml-2 d-flex flex-column justify-content-center">
-                    <h5 class="mt-0">'.$site->title().'</h5>
+                    <p class="my-0 font-weight-bold">'.$site->title().'</p>
                     <small calss="text-muted">'.$site->slogan().'</small>
                 </div>
             </a>
