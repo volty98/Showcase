@@ -39,6 +39,7 @@ body {
 	padding: 0.2em 0.5em;
 	background: var(--color-light);
 }
+
 /* --------- Override for page-content --------- */
 .showtime-page h1 { /* タイトル */
     font-size: 1.5rem;
@@ -67,6 +68,13 @@ body {
     font-weight: 600;
 }
 
+/* ------------- Sidebar styles -------- */
+.showtime-sidebar {
+	padding: 0.2em 0.5em;
+	background: var(--color-light);
+	border-radius: 1em 0 0 1em;
+}
+
 /* ------------- Header styles -------- */
 .showtime-header-logo{
 	background-color: var(--color-lavender);
@@ -92,9 +100,10 @@ body {
 
 /* ---------- breadcrumb styles ---------- */
 .showtime-breadcrumb {
+    max-width: 1200px; /* ただし1200px以上にはならない */
+    margin: 0.1em auto;    /* 中央寄せ */
+    padding: 0.4em 1em;   /* 画面が小さくなっても、左右に必ず1emの余白が残る */
 	border-radius: 100vh;
-	margin: 0.1em auto;
-	padding: 0.4em 2em;
 }
 .showtime-breadcrumb li {
 	font-size: 0.85em;

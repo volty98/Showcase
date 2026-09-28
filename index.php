@@ -34,22 +34,34 @@
 		<?php echo siteHeader(); ?>
     </header>
 
-	<!-- Main content -->
-	<main class="showtime-content">
-		<!-- Breadcrumb navigation -->
-		<div class="showtime-breadcrumb"><?php echo breadcrumb(); ?></div>
+	<!-- Breadcrumb navigation -->
+	<nav class="showtime-breadcrumb"><?php echo breadcrumb(); ?></nav>
 
-		<!-- Home page content -->
-		<?php if ($WHERE_AM_I == 'home'): ?>
-			<?php echo home(); ?>
-		<?php elseif ($WHERE_AM_I == 'category'): ?>
-			<!-- categoryPage content -->
-			<?php echo categoryPage(); ?>
+	<div class="showtime-content row">
+		<!-- Sidebar -->
+		<?php if ($WHERE_AM_I == 'page' && !$page->isStatic()): ?>
+			<div class="showtime-sidebar col-12 col-md-4 col-lg-3"><?php echo asideBar(); ?></div>
+		<?php endif; ?>
+
+		<!-- Main content -->
+		<?php if ($WHERE_AM_I == 'page' && !$page->isStatic()): ?>
+			<main class="showtime-content col-12 col-md-8 col-lg-9">
 		<?php else: ?>
-			<!-- Page content and other pages -->
-			<?php echo contentPage(); ?>
-		<?php endif ?>
-	</main>
+			<main class="showtime-content col-12">
+		<?php endif; ?>
+
+			<!-- Home page content -->
+			<?php if ($WHERE_AM_I == 'home'): ?>
+				<?php echo home(); ?>
+			<?php elseif ($WHERE_AM_I == 'category'): ?>
+				<!-- categoryPage content -->
+				<?php echo categoryPage(); ?>
+			<?php else: ?>
+				<!-- Page content and other pages -->
+				<?php echo contentPage(); ?>
+			<?php endif ?>
+		</main>
+	</div>
 
 	<!-- Footer -->
 	<footer class="showtime-footer">
