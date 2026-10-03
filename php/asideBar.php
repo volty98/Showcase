@@ -1,5 +1,5 @@
 <?php
-function asideBar()
+function asidebar()
 {
     global  $page, $content, $categories;
 
