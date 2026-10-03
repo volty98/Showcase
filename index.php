@@ -54,11 +54,11 @@
 			<?php if ($WHERE_AM_I == 'home'): ?>
 				<?php echo home(); ?>
 			<?php elseif ($WHERE_AM_I == 'category'): ?>
-				<!-- categoryPage content -->
-				<?php echo categoryPage(); ?>
+				<!-- Category page content -->
+				<?php echo categorypage(); ?>
 			<?php else: ?>
 				<!-- Page content and other pages -->
-				<?php echo contentPage(); ?>
+				<?php echo contentpage(); ?>
 			<?php endif ?>
 		</main>
 	</div>
