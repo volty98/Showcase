@@ -1,5 +1,5 @@
 <?php
-function contentPage()
+function contentpage()
 {
     global  $page, $content, $categories;
 
